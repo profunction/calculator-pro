@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — Calculator Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+  <a href="index.html" class="auth-back-home">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to home
+  </a>
+  <button class="auth-theme-toggle" id="authThemeToggle" type="button" aria-label="Toggle dark mode">
+    <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+
+  <div class="auth-page">
+    <!-- Left Brand Panel -->
+    <div class="auth-brand-panel">
+      <div class="auth-brand-content">
+        <img src="logo.svg" alt="Calculator Pro" class="auth-brand-logo" />
+        <h1 class="auth-brand-title">Welcome Back</h1>
+        <p class="auth-brand-subtitle">Sign in to access your calculators, saved results, and personalized dashboard.</p>
+        <div class="auth-brand-features">
+          <div class="auth-brand-feature">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            10+ Free Calculators
+          </div>
+          <div class="auth-brand-feature">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Country-Specific Algorithms
+          </div>
+          <div class="auth-brand-feature">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Personalized Dashboard
+          </div>
+          <div class="auth-brand-feature">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Secure Google Login
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Form Panel -->
+    <div class="auth-form-panel">
+      <div class="auth-form-wrapper">
+        <div class="auth-mobile-logo">
+          <img src="logo.svg" alt="Calculator Pro" />
+          <span>Calculator Pro</span>
+        </div>
+
+        <h2 class="auth-form-title">Sign In</h2>
+        <p class="auth-form-subtitle">Use your Google account to sign in securely.</p>
+
+        <!-- Error / Success Messages -->
+        <div class="auth-error" id="authError">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          <span id="authErrorText"></span>
+        </div>
+        <div class="auth-success" id="authSuccess">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span id="authSuccessText"></span>
+        </div>
+
+        <!-- Google Sign In Button -->
+        <button class="google-btn-large" id="googleLoginBtn" type="button">
+          <svg width="20" height="20" viewBox="0 0 48 48">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+          Continue with Google
+        </button>
+
+        <div class="auth-divider">or sign in with email</div>
+
+        <!-- Email/Password Form -->
+        <form id="loginForm" autocomplete="on">
+          <div class="auth-field-group">
+            <label class="auth-field-label" for="loginEmail">Email address</label>
+            <input class="auth-field-input" type="email" id="loginEmail" placeholder="you@example.com" required autocomplete="email" />
+          </div>
+          <div class="auth-field-group">
+            <label class="auth-field-label" for="loginPassword">Password</label>
+            <div class="auth-password-wrap">
+              <input class="auth-field-input" type="password" id="loginPassword" placeholder="Enter your password" required autocomplete="current-password" />
+              <button type="button" class="auth-password-toggle" id="loginPwToggle" aria-label="Toggle password visibility">
+                <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="auth-form-row">
+            <label class="auth-checkbox-label">
+              <input type="checkbox" id="loginRemember" /> Remember me
+            </label>
+            <a href="#" class="auth-forgot-link" id="forgotLink">Forgot password?</a>
+          </div>
+          <button type="submit" class="auth-submit-btn" id="loginSubmitBtn">Sign In</button>
+        </form>
+
+        <p class="auth-footer-link">
+          Don't have an account? <a href="register.html">Create one now</a>
+        </p>
+
+        <p class="auth-terms">
+          By signing in, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="i18n.js" defer></script>
+  <script src="auth.js" defer></script>
+  <script>
+    // ── Theme sync for auth pages ──
+    (function() {
+      var t = localStorage.getItem('calcpro_theme') || 'light';
+      if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+      var btn = document.getElementById('authThemeToggle');
+      if (btn) {
+        btn.addEventListener('click', function() {
+          var d = document.documentElement.getAttribute('data-theme') === 'dark';
+          if (d) { document.documentElement.removeAttribute('data-theme'); localStorage.setItem('calcpro_theme','light'); }
+          else { document.documentElement.setAttribute('data-theme','dark'); localStorage.setItem('calcpro_theme','dark'); }
+        });
+      }
+    })();
+
+    // ── Password toggle ──
+    (function() {
+      var btn = document.getElementById('loginPwToggle');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        var inp = document.getElementById('loginPassword');
+        if (!inp) return;
+        var isPw = inp.type === 'password';
+        inp.type = isPw ? 'text' : 'password';
+        btn.querySelector('.eye-open').style.display = isPw ? 'none' : '';
+        btn.querySelector('.eye-closed').style.display = isPw ? '' : 'none';
+      });
+    })();
+
+    // ── Login form (demo mode — shows info) ──
+    (function() {
+      var form = document.getElementById('loginForm');
+      if (!form) return;
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var email = document.getElementById('loginEmail').value;
+        var pw = document.getElementById('loginPassword').value;
+        if (!email || !pw) {
+          showAuthError('Please fill in all fields.');
+          return;
+        }
+        // Demo mode: show success message
+        showAuthSuccess('Demo mode: In production, this would authenticate with your backend. For now, use "Continue with Google" to sign in.');
+      });
+
+      function showAuthError(msg) {
+        var el = document.getElementById('authError');
+        var txt = document.getElementById('authErrorText');
+        if (el && txt) { txt.textContent = msg; el.classList.add('show'); }
+        var s = document.getElementById('authSuccess'); if (s) s.classList.remove('show');
+      }
+      function showAuthSuccess(msg) {
+        var el = document.getElementById('authSuccess');
+        var txt = document.getElementById('authSuccessText');
+        if (el && txt) { txt.textContent = msg; el.classList.add('show'); }
+        var er = document.getElementById('authError'); if (er) er.classList.remove('show');
+      }
+      window.showAuthError = showAuthError;
+      window.showAuthSuccess = showAuthSuccess;
+    })();
+  </script>
+</body>
+</html>

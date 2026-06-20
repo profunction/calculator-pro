@@ -1,40 +1,69 @@
 /**
- * auth.js — Google Sign-In (One Tap + Button)
- * Pure frontend implementation using Google Identity Services
+ * auth.js — Google Sign-In + Auth Pages Support
+ * Pure frontend (no backend required)
  *
- * HOW TO SET UP:
- * 1. Go to https://console.cloud.google.com/
- * 2. Create a project → APIs & Services → Credentials
- * 3. Create OAuth 2.0 Client ID (Web application)
- * 4. Add your domain to "Authorised JavaScript origins"
- * 5. Replace YOUR_GOOGLE_CLIENT_ID below with your actual Client ID
+ * SETUP:
+ * 1. Get a Google OAuth Client ID from https://console.cloud.google.com/
+ * 2. Replace YOUR_GOOGLE_CLIENT_ID below
+ * 3. Add your domain to "Authorized JavaScript origins"
  */
 
 (function () {
-  var CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID'; // ← Replace this!
+  var CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID'; // ← Replace!
 
   // ── State ──
   var currentUser = null;
 
   // ── DOM helpers ──
   function qs(sel) { return document.querySelector(sel); }
-  function show(el) { if (el) el.style.display = ''; }
-  function hide(el) { if (el) el.style.display = 'none'; }
 
-  // ── Render user avatar in header ──
+  // ── Toggle mobile auth links ──
+  function toggleMobileAuth(show) {
+    var links = document.querySelectorAll('.mobile-auth-links');
+    links.forEach(function (el) {
+      if (show) {
+        el.classList.remove('hide');
+        el.classList.add('show');
+      } else {
+        el.classList.remove('show');
+        el.classList.add('hide');
+      }
+    });
+  }
+
+  // ── Render header buttons (not logged in) ──
+  function renderAuthButtons() {
+    var container = qs('#authContainer');
+    if (!container) return;
+
+    container.innerHTML = [
+      '<a href="login.html" class="header-login-btn" id="headerLoginBtn">',
+        '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>',
+        ' Sign In',
+      '</a>',
+      '<a href="register.html" class="header-signup-btn" id="headerSignupBtn">',
+        '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>',
+        ' Sign Up',
+      '</a>',
+    ].join('');
+
+    toggleMobileAuth(true);
+  }
+
+  // ── Render user avatar (logged in) ──
   function renderUserAvatar(user) {
     var container = qs('#authContainer');
     if (!container) return;
 
     container.innerHTML = [
       '<div class="user-avatar-wrap" id="userMenu">',
-        '<img src="' + user.picture + '" alt="' + user.name + '" class="user-avatar" id="userAvatar" />',
+        '<img src="' + (user.picture || 'logo.svg') + '" alt="' + (user.name || 'User') + '" class="user-avatar" id="userAvatar" />',
         '<div class="user-dropdown" id="userDropdown">',
           '<div class="user-info">',
-            '<img src="' + user.picture + '" alt="" class="user-info-avatar" />',
+            '<img src="' + (user.picture || 'logo.svg') + '" alt="" class="user-info-avatar" />',
             '<div>',
-              '<div class="user-info-name">' + user.name + '</div>',
-              '<div class="user-info-email">' + user.email + '</div>',
+              '<div class="user-info-name">' + (user.name || 'User') + '</div>',
+              '<div class="user-info-email">' + (user.email || '') + '</div>',
             '</div>',
           '</div>',
           '<button class="user-signout-btn" id="signOutBtn">',
@@ -45,7 +74,7 @@
       '</div>',
     ].join('');
 
-    // Toggle dropdown on avatar click
+    // Toggle dropdown
     var avatar = qs('#userAvatar');
     var dropdown = qs('#userDropdown');
     if (avatar && dropdown) {
@@ -67,66 +96,66 @@
         }
         currentUser = null;
         localStorage.removeItem('calcpro_user');
-        renderLoginButton();
+        renderAuthButtons();
+        toggleMobileAuth(true);
       });
     }
+    toggleMobileAuth(false);
   }
 
-  // ── Render login button (not signed in) ──
-  function renderLoginButton() {
-    var container = qs('#authContainer');
-    if (!container) return;
-
-    container.innerHTML = [
-      '<button class="google-login-btn" id="googleLoginBtn" type="button">',
-        '<svg width="18" height="18" viewBox="0 0 48 48">',
-          '<path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>',
-          '<path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>',
-          '<path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>',
-          '<path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>',
-        '</svg>',
-        '<span>Sign in with Google</span>',
-      '</button>',
-    ].join('');
-
-    var btn = qs('#googleLoginBtn');
-    if (btn) {
-      btn.addEventListener('click', function () {
-        if (!window.google || !window.google.accounts) {
-          alert('Google Sign-In is loading, please try again in a moment.');
-          return;
-        }
-        window.google.accounts.id.prompt();
-      });
-    }
-  }
-
-  // ── Handle credential response from Google ──
+  // ── Handle Google credential response ──
   function handleCredentialResponse(response) {
-    // Decode JWT payload (base64)
-    var parts = response.credential.split('.');
-    var payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')));
+    try {
+      var parts = response.credential.split('.');
+      var payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')));
 
-    currentUser = {
-      name: payload.name,
-      email: payload.email,
-      picture: payload.picture,
-      sub: payload.sub
-    };
+      currentUser = {
+        name: payload.name || 'User',
+        email: payload.email || '',
+        picture: payload.picture || '',
+        sub: payload.sub || '',
+        given_name: payload.given_name || '',
+      };
 
-    // Persist to localStorage (session)
-    localStorage.setItem('calcpro_user', JSON.stringify(currentUser));
+      localStorage.setItem('calcpro_user', JSON.stringify(currentUser));
+      renderUserAvatar(currentUser);
 
-    renderUserAvatar(currentUser);
+      // If on login/register page, redirect to home
+      if (window.location.pathname.match(/login|register/)) {
+        setTimeout(function () {
+          window.location.href = 'index.html';
+        }, 800);
+      }
+    } catch (e) {
+      console.error('Google auth error:', e);
+    }
   }
 
   // ── Load Google Identity Services SDK ──
   function loadGoogleSDK() {
     if (CLIENT_ID === 'YOUR_GOOGLE_CLIENT_ID') {
-      // Not configured yet — show placeholder
-      var container = qs('#authContainer');
-      if (container) {
-        container.innerHTML = '<span class="auth-setup-hint">🔑 <a href="https://console.cloud.google.com/" target="_blank">Setup Google Login</a></span>';
+      // Not configured — show login/signup buttons
+      var saved = localStorage.getItem('calcpro_user');
+      if (saved) {
+        try {
+          currentUser = JSON.parse(saved);
+          renderUserAvatar(currentUser);
+        } catch (e) {
+          localStorage.removeItem('calcpro_user');
+          renderAuthButtons();
+        }
+      } else {
+        renderAuthButtons();
+      }
+
+      // Still show setup hint on auth pages
+      if (window.location.pathname.match(/login|register/)) {
+        var hint = document.createElement('div');
+        hint.className = 'auth-setup-hint';
+        hint.style.cssText = 'background:#fffbe6;color:#92400e;padding:10px 16px;border-radius:10px;font-size:13px;margin-bottom:16px;';
+        hint.innerHTML = '⚠️ Google Login not configured yet. <a href="https://console.cloud.google.com/" target="_blank" style="color:#1d4ed8;">Get Client ID</a> and replace YOUR_GOOGLE_CLIENT_ID in auth.js';
+        var wrapper = qs('.auth-form-wrapper');
+        if (wrapper) wrapper.insertBefore(hint, wrapper.firstChild);
       }
       return;
     }
@@ -140,10 +169,10 @@
         client_id: CLIENT_ID,
         callback: handleCredentialResponse,
         auto_select: false,
-        cancel_on_tap_outside: true
+        cancel_on_tap_outside: true,
       });
 
-      // Check if user was previously signed in
+      // Check saved user
       var saved = localStorage.getItem('calcpro_user');
       if (saved) {
         try {
@@ -151,29 +180,44 @@
           renderUserAvatar(currentUser);
         } catch (e) {
           localStorage.removeItem('calcpro_user');
-          renderLoginButton();
+          renderAuthButtons();
         }
       } else {
-        renderLoginButton();
-        // Show One Tap prompt after a short delay
-        setTimeout(function () {
-          window.google.accounts.id.prompt();
-        }, 1000);
+        renderAuthButtons();
+        // Show One Tap on home page (not on auth pages)
+        if (!window.location.pathname.match(/login|register/)) {
+          setTimeout(function () {
+            window.google.accounts.id.prompt();
+          }, 1200);
+        }
       }
+
+      // Attach Google button click handlers for auth pages
+      var googleBtns = ['googleLoginBtn', 'googleSignupBtn'];
+      googleBtns.forEach(function (id) {
+        var btn = document.getElementById(id);
+        if (btn) {
+          btn.addEventListener('click', function () {
+            if (window.google && window.google.accounts) {
+              window.google.accounts.id.prompt();
+            }
+          });
+        }
+      });
     };
     document.head.appendChild(script);
   }
 
-  // ── Init on DOM ready ──
+  // ── Init ──
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', loadGoogleSDK);
   } else {
     loadGoogleSDK();
   }
 
-  // ── Expose for other scripts ──
+  // ── Expose ──
   window.calcProAuth = {
     getUser: function () { return currentUser; },
-    isLoggedIn: function () { return !!currentUser; }
+    isLoggedIn: function () { return !!currentUser; },
   };
 })();
