@@ -1,0 +1,429 @@
+/* =====================================================
+   Calculator Pro — basic-calc.css
+   Scientific Calculator Styles
+   ===================================================== */
+
+.calc-section {
+  padding: 40px 0 60px;
+  background: var(--bg);
+  min-height: 60vh;
+}
+
+.sci-calc-wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 32px;
+  align-items: start;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .sci-calc-wrapper {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+
+/* ── Calculator Card ── */
+.sci-calc-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  width: 420px;
+  max-width: 100%;
+}
+
+@media (max-width: 460px) {
+  .sci-calc-card {
+    width: 100%;
+  }
+}
+
+/* ── Mode Bar ── */
+.sci-mode-bar {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+}
+
+.sci-mode-btn {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: 'Inter', sans-serif;
+}
+
+.sci-mode-btn.active {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  background: var(--primary-light);
+}
+
+.sci-mode-btn:hover {
+  background: var(--bg-input);
+}
+
+/* ── Display ── */
+.sci-display {
+  background: var(--text);
+  color: #fff;
+  padding: 20px 20px 16px;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  word-break: break-all;
+}
+
+.sci-expression {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  min-height: 18px;
+  margin-bottom: 6px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sci-result {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Memory Indicator ── */
+.sci-mem-indicator {
+  text-align: right;
+  padding: 2px 12px;
+  font-size: 12px;
+  color: var(--primary);
+  font-weight: 700;
+  min-height: 18px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Scientific Function Row ── */
+.sci-fn-row {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.sci-fn-btn {
+  flex: 1;
+  padding: 6px 0;
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.1s;
+}
+
+.sci-fn-btn:hover {
+  background: var(--bg-input);
+}
+
+.sci-fn-btn.active-2nd {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ── Scientific Buttons Grid ── */
+.sci-btns-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.sci-btn {
+  border: none;
+  padding: 12px 0;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--bg-card);
+  color: var(--text);
+  transition: background 0.1s;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sci-btn:hover {
+  background: var(--bg-input);
+}
+
+.sci-btn:active {
+  background: var(--primary-light);
+}
+
+.sci-btn.fn {
+  background: var(--bg);
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.sci-btn.op {
+  background: var(--primary-light);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.sci-btn.eq {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.sci-btn.eq:hover {
+  background: var(--primary-dark);
+}
+
+.sci-btn.active-op {
+  background: var(--primary);
+  color: #fff;
+}
+
+.sci-btn.num {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* ── Main Buttons Grid ── */
+.sci-main-btns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+
+.sci-main-btns .sci-btn {
+  padding: 18px 0;
+  font-size: 19px;
+}
+
+/* ── Info Panel ── */
+.calc-info {
+  max-width: 480px;
+}
+
+.calc-info h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px 0;
+}
+
+.info-list li {
+  padding: 8px 0 8px 24px;
+  position: relative;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.info-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* ── History ── */
+.info-history {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.info-history h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.history-list {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.history-item {
+  padding: 6px 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.history-item:hover {
+  color: var(--primary);
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-expr {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.history-result {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-sm:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* ── All Calculators Grid ── */
+.all-calc-section {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.section-desc {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  font-size: 15px;
+}
+
+.all-calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.all-calc-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.all-calc-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+  color: var(--primary);
+}
+
+.all-calc-card.active {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.all-calc-icon {
+  font-size: 20px;
+}
+
+/* ── Dark Mode ── */
+[data-theme="dark"] .sci-display {
+  background: #0f172a;
+}
+
+[data-theme="dark"] .sci-btn {
+  background: var(--bg-card);
+}
+
+[data-theme="dark"] .sci-btn.fn {
+  background: rgba(255,255,255,0.05);
+}
+
+/* ── Responsive ── */
+@media (max-width: 500px) {
+  .sci-calc-card {
+    width: 100%;
+  }
+
+  .sci-result {
+    font-size: 30px;
+  }
+
+  .sci-btn {
+    padding: 10px 0;
+    font-size: 13px;
+  }
+
+  .sci-main-btns .sci-btn {
+    padding: 14px 0;
+    font-size: 17px;
+  }
+
+  .sci-btns-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .sci-fn-btn {
+    font-size: 11px;
+    padding: 5px 0;
+  }
+
+  .all-calc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

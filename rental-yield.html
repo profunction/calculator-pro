@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rental Yield Calculator — Calculator Pro</title>
+  <meta name="description" content="Rental yield calculator with country-specific rental rules and taxes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="auth.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Rental Yield Calculator",
+    "description": "Rental yield calculator with country-specific rules.",
+    "url": "https://calculatorpro.com/rental-yield.html",
+    "applicationCategory": "FinanceApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link" data-i18n="nav.skip">Skip to main content</a>
+
+  <!-- ─── HEADER (Shared) ─── -->
+  <header class="site-header" id="top" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Calculator Pro - Home">
+        <img src="logo.svg" alt="Calculator Pro Logo" width="32" height="32" />
+        <span data-i18n="brand.name">Calculator Pro</span>
+      </a>
+      <nav class="nav-links" id="navLinks" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav.basic">Basic</a>
+        <a href="loan.html" class="nav-link" data-i18n="nav.loan">Loan</a>
+        <a href="mortgage.html" class="nav-link" data-i18n="nav.mortgage">Mortgage</a>
+        <a href="investment.html" class="nav-link" data-i18n="nav.investment">Investment</a>
+        <a href="vat.html" class="nav-link" data-i18n="nav.vat">VAT/Tax</a>
+        <a href="salary.html" class="nav-link" data-i18n="nav.salary">Salary</a>
+        <a href="car-lease.html" class="nav-link" data-i18n="nav.carLease">Car Lease</a>
+        <a href="profit-margin.html" class="nav-link" data-i18n="nav.profit">Profit Margin</a>
+        <a href="rental-yield.html" class="nav-link active" data-i18n="nav.rental">Rental Yield</a>
+        <a href="equipment-lease.html" class="nav-link" data-i18n="nav.equipment">Equipment Lease</a>
+      </nav>
+      <div class="header-actions">
+        <div class="lang-switcher" id="langSwitcher">
+          <button class="lang-btn" id="langBtn" type="button" aria-label="Select language">
+            <span class="lang-flag" id="langFlag">🇺🇸</span>
+            <span id="langLabel">EN</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-option active" data-lang="en" type="button"><span class="lang-flag">🇺🇸</span> English</button>
+            <button class="lang-option" data-lang="zh" type="button"><span class="lang-flag">🇨🇳</span> 华文</button>
+            <button class="lang-option" data-lang="ms" type="button"><span class="lang-flag">🇲🇾</span> Bahasa Melayu</button>
+          </div>
+        </div>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <div id="authContainer"></div>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="container">
+        <h1 data-i18n="rental.hero.title">Rental Yield Calculator</h1>
+        <p class="hero-subtitle" data-i18n="rental.hero.subtitle">Calculate rental yield with country-specific rental rules and taxes.</p>
+        <!-- Country Selector -->
+        <div class="country-bar">
+          <label for="rentalCountry" data-i18n="calc.country">Country/Region:</label>
+          <select id="rentalCountry" class="country-select">
+            <option value="my" data-i18n="country.my">🇲🇾 Malaysia (RPGT)</option>
+            <option value="us" data-i18n="country.us">🇺🇸 United States</option>
+            <option value="cn" data-i18n="country.cn">🇨🇳 China</option>
+            <option value="sg" data-i18n="country.sg">🇸🇬 Singapore</option>
+            <option value="uk" data-i18n="country.uk">🇬🇬 United Kingdom</option>
+            <option value="other" data-i18n="country.other">🌐 Other</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="calc-section">
+      <div class="container">
+        <div class="calc-grid-2">
+          <!-- Form -->
+          <div class="calc-form-card">
+            <form id="rentalForm" autocomplete="off">
+              <div class="input-row">
+                <div class="form-group">
+                  <label for="propertyValue" data-i18n="rental.label.value">Property Value <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <span class="input-prefix currency-prefix">$</span>
+                    <input type="number" id="propertyValue" name="propertyValue" placeholder="500000" min="0" step="1" required />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="monthlyRent" data-i18n="rental.label.rent">Monthly Rent <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <span class="input-prefix currency-prefix">$</span>
+                    <input type="number" id="monthlyRent" name="monthlyRent" placeholder="2500" min="0" step="1" required />
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-row">
+                <div class="form-group">
+                  <label for="vacancyRate" data-i18n="rental.label.vacancy">Vacancy Rate (%)</label>
+                  <div class="input-wrap">
+                    <span class="input-prefix">%</span>
+                    <input type="number" id="vacancyRate" name="vacancyRate" placeholder="5" min="0" max="100" step="0.1" value="5" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="monthlyExpenses" data-i18n="rental.label.expenses">Monthly Expenses</label>
+                  <div class="input-wrap">
+                    <span class="input-prefix currency-prefix">$</span>
+                    <input type="number" id="monthlyExpenses" name="monthlyExpenses" placeholder="500" min="0" step="1" value="0" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Malaysia-Specific: RPGT (Real Property Gains Tax) -->
+              <div class="country-fields field-my">
+                <h3 data-i18n="rental.section.my">Malaysia — RPGT</h3>
+                <p style="font-size:13px; color:var(--text-secondary); margin-bottom:12px;" data-i18n="rental.info.my">RPGT (Real Property Gains Tax) applies when you sell. Rate depends on holding period and citizenship.</p>
+                <div class="input-row">
+                  <div class="form-group">
+                    <label for="holdingYears" data-i18n="rental.label.holding">Holding Period (Years)</label>
+                    <input type="number" id="holdingYears" name="holdingYears" placeholder="5" min="0" max="50" step="1" value="5" />
+                  </div>
+                  <div class="form-group">
+                    <label for="rpggtRate" data-i18n="rental.label.rpggt">RPGT Rate (%)</label>
+                    <div class="input-wrap">
+                      <span class="input-prefix">%</span>
+                      <input type="number" id="rpggtRate" name="rpggtRate" placeholder="5" min="0" max="100" step="0.1" value="5" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary" data-i18n="calc.calculate">Calculate</button>
+                <button type="reset" class="btn btn-outline" data-i18n="calc.reset">Reset</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Results -->
+          <div class="calc-results-wrap">
+            <div class="dashboard" id="dashboard">
+              <p class="dash-prompt" id="dashPrompt" data-i18n="calc.prompt">Enter property details and click Calculate.</p>
+              <div class="kpi-grid hidden-until-calc">
+                <div class="kpi-card">
+                  <div class="kpi-label" data-i18n="rental.result.grossYield">Gross Yield</div>
+                  <div class="kpi-value" id="kpiGrossYield">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label" data-i18n="rental.result.netYield">Net Yield</div>
+                  <div class="kpi-value" id="kpiNetYield">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label" data-i18n="rental.result.annualIncome">Annual Income</div>
+                  <div class="kpi-value" id="kpiAnnualIncome">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label" data-i18n="rental.result.roi">ROI (%)</div>
+                  <div class="kpi-value" id="kpiROI">—</div>
+                </div>
+                <!-- Malaysia KPIs -->
+                <div class="kpi-card field-my">
+                  <div class="kpi-label" data-i18n="rental.result.rpggt">RPGT (if sold)</div>
+                  <div class="kpi-value" id="kpiRPGT">—</div>
+                </div>
+                <div class="kpi-card field-my">
+                  <div class="kpi-label" data-i18n="rental.result.afterTax">After-Tax ROI</div>
+                  <div class="kpi-value" id="kpiAfterTax">—</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="result-actions hidden-until-calc" id="resultActions">
+              <button class="btn btn-outline" id="copyResults" data-i18n="calc.copyResults" disabled>Copy Results</button>
+              <button class="btn btn-outline" id="shareResults" data-i18n="calc.share" disabled>Share Link</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- All Calculators -->
+    <section class="all-calc-section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="allcalc.title">All Calculators</h2>
+        <p class="section-desc" data-i18n="allcalc.desc">Explore our full suite of free online calculators.</p>
+        <div class="all-calc-grid">
+          <a href="index.html" class="all-calc-card">
+            <span class="all-calc-icon">🔢</span>
+            <span data-i18n="nav.basic">Basic</span>
+          </a>
+          <a href="loan.html" class="all-calc-card">
+            <span class="all-calc-icon">💰</span>
+            <span data-i18n="nav.loan">Loan</span>
+          </a>
+          <a href="mortgage.html" class="all-calc-card">
+            <span class="all-calc-icon">🏠</span>
+            <span data-i18n="nav.mortgage">Mortgage</span>
+          </a>
+          <a href="investment.html" class="all-calc-card">
+            <span class="all-calc-icon">📈</span>
+            <span data-i18n="nav.investment">Investment</span>
+          </a>
+          <a href="vat.html" class="all-calc-card">
+            <span class="all-calc-icon">🧾</span>
+            <span data-i18n="nav.vat">VAT/Tax</span>
+          </a>
+          <a href="salary.html" class="all-calc-card">
+            <span class="all-calc-icon">💵</span>
+            <span data-i18n="nav.salary">Salary</span>
+          </a>
+          <a href="car-lease.html" class="all-calc-card">
+            <span class="all-calc-icon">🚗</span>
+            <span data-i18n="nav.carLease">Car Lease</span>
+          </a>
+          <a href="profit-margin.html" class="all-calc-card">
+            <span class="all-calc-icon">📊</span>
+            <span data-i18n="nav.profit">Profit Margin</span>
+          </a>
+          <a href="rental-yield.html" class="all-calc-card active">
+            <span class="all-calc-icon">🏢</span>
+            <span data-i18n="nav.rental">Rental Yield</span>
+          </a>
+          <a href="equipment-lease.html" class="all-calc-card">
+            <span class="all-calc-icon">🏭</span>
+            <span data-i18n="nav.equipment">Equipment Lease</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── FOOTER (Shared) ─── -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="logo.svg" alt="Calculator Pro Logo" width="28" height="28" />
+        <span data-i18n="brand.name">Calculator Pro</span>
+      </div>
+      <p class="footer-copy" data-i18n="footer.copy">&copy; 2026 Calculator Pro. All calculators free to use.</p>
+      <div class="footer-links">
+        <a href="#" data-i18n="footer.privacy">Privacy</a>
+        <a href="#" data-i18n="footer.terms">Terms</a>
+        <a href="#" data-i18n="footer.contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-to-top" data-i18n="nav.top">Back to top</a>
+
+  <script src="i18n.js" defer></script>
+  <script src="auth.js" defer></script>
+  <script src="rental-yield.js" defer></script>
+</body>
+</html>

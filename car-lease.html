@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car Lease Calculator — Calculator Pro</title>
+  <meta name="description" content="Car lease calculator with country-specific road tax and insurance calculations. Supports Malaysia road tax by engine capacity." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="auth.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Car Lease Calculator",
+    "description": "Car lease calculator with country-specific road tax.",
+    "url": "https://calculatorpro.com/car-lease.html",
+    "applicationCategory": "FinanceApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link" data-i18n="nav.skip">Skip to main content</a>
+
+  <!-- ─── HEADER (Shared) ─── -->
+  <header class="site-header" id="top" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Calculator Pro - Home">
+        <img src="logo.svg" alt="Calculator Pro Logo" width="32" height="32" />
+        <span data-i18n="brand.name">Calculator Pro</span>
+      </a>
+      <nav class="nav-links" id="navLinks" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav.basic">Basic</a>
+        <a href="loan.html" class="nav-link" data-i18n="nav.loan">Loan</a>
+        <a href="mortgage.html" class="nav-link" data-i18n="nav.mortgage">Mortgage</a>
+        <a href="investment.html" class="nav-link" data-i18n="nav.investment">Investment</a>
+        <a href="vat.html" class="nav-link" data-i18n="nav.vat">VAT/Tax</a>
+        <a href="salary.html" class="nav-link" data-i18n="nav.salary">Salary</a>
+        <a href="car-lease.html" class="nav-link active" data-i18n="nav.carLease">Car Lease</a>
+        <a href="profit-margin.html" class="nav-link" data-i18n="nav.profit">Profit Margin</a>
+        <a href="rental-yield.html" class="nav-link" data-i18n="nav.rental">Rental Yield</a>
+        <a href="equipment-lease.html" class="nav-link" data-i18n="nav.equipment">Equipment Lease</a>
+      </nav>
+      <div class="header-actions">
+        <div class="lang-switcher" id="langSwitcher">
+          <button class="lang-btn" id="langBtn" type="button" aria-label="Select language">
+            <span class="lang-flag" id="langFlag">🇺🇸</span>
+            <span id="langLabel">EN</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-option active" data-lang="en" type="button"><span class="lang-flag">🇺🇸</span> English</button>
+            <button class="lang-option" data-lang="zh" type="button"><span class="lang-flag">🇨🇳</span> 华文</button>
+            <button class="lang-option" data-lang="ms" type="button"><span class="lang-flag">🇲🇾</span> Bahasa Melayu</button>
+          </div>
+        </div>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <div id="authContainer"></div>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="container">
+        <h1 data-i18n="car.hero.title">Car Lease Calculator</h1>
+        <p class="hero-subtitle" data-i18n="car.hero.subtitle">Calculate monthly lease payments with country-specific road tax and insurance.</p>
+        <!-- Country Selector -->
+        <div class="country-bar">
+          <label for="carCountry" data-i18n="calc.country">Country/Region:</label>
+          <select id="carCountry" class="country-select">
+            <option value="my" data-i18n="country.my">🇲🇾 Malaysia (Road Tax)</option>
+            <option value="sg" data-i18n="country.sg">🇸🇬 Singapore (ARF/Parf)</option>
+            <option value="us" data-i18n="country.us">🇺🇸 United States</option>
+            <option value="cn" data-i18n="country.cn">🇨🇳 China</option>
+            <option value="other" data-i18n="country.other">🌐 Other</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="calc-section">
+      <div class="container">
+        <div class="calc-grid-2">
+          <!-- Form -->
+          <div class="calc-form-card">
+            <form id="carForm" autocomplete="off">
+              <div class="input-row">
+                <div class="form-group">
+                  <label for="carPrice" data-i18n="car.label.price">Car Price <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <span class="input-prefix currency-prefix">$</span>
+                    <input type="number" id="carPrice" name="carPrice" placeholder="35000" min="0" step="1" required />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="carDown" data-i18n="car.label.down">Down Payment</label>
+                  <div class="input-wrap">
+                    <span class="input-prefix currency-prefix">$</span>
+                    <input type="number" id="carDown" name="carDown" placeholder="5000" min="0" step="1" value="0" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-row">
+                <div class="form-group">
+                  <label for="carTerm" data-i18n="car.label.term">Lease Term (Months) <span class="required">*</span></label>
+                  <input type="number" id="carTerm" name="carTerm" placeholder="36" min="1" max="120" step="1" value="36" required />
+                </div>
+                <div class="form-group">
+                  <label for="carRate" data-i18n="car.label.rate">Interest Rate (% p.a.)</label>
+                  <div class="input-wrap">
+                    <span class="input-prefix">%</span>
+                    <input type="number" id="carRate" name="carRate" placeholder="5.5" min="0" max="100" step="0.01" value="5.5" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-row">
+                <div class="form-group">
+                  <label for="carResidual" data-i18n="car.label.residual">Residual Value</label>
+                  <div class="input-wrap">
+                    <span class="input-prefix currency-prefix">$</span>
+                    <input type="number" id="carResidual" name="carResidual" placeholder="15000" min="0" step="1" value="0" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="carMiles" data-i18n="car.label.miles">Annual Miles</label>
+                  <input type="number" id="carMiles" name="carMiles" placeholder="12000" min="0" step="100" value="12000" />
+                </div>
+              </div>
+
+              <!-- Malaysia-Specific: Engine Capacity for Road Tax -->
+              <div class="country-fields field-my">
+                <h3 data-i18n="car.section.my">Malaysia — Road Tax (by Engine CC)</h3>
+                <div class="input-row">
+                  <div class="form-group">
+                    <label for="engineCC" data-i18n="car.label.engineCC">Engine Capacity (CC)</label>
+                    <input type="number" id="engineCC" name="engineCC" placeholder="2000" min="0" max="10000" step="1" value="2000" />
+                  </div>
+                  <div class="form-group">
+                    <label for="insuranceValue" data-i18n="car.label.insurance">Insurance Value</label>
+                    <div class="input-wrap">
+                      <span class="input-prefix currency-prefix">$</span>
+                      <input type="number" id="insuranceValue" name="insuranceValue" placeholder="35000" min="0" step="1" value="0" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary" data-i18n="calc.calculate">Calculate</button>
+                <button type="reset" class="btn btn-outline" data-i18n="calc.reset">Reset</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Results -->
+          <div class="calc-results-wrap">
+            <div class="dashboard" id="dashboard">
+              <p class="dash-prompt" id="dashPrompt" data-i18n="calc.prompt">Enter car details and click Calculate.</p>
+              <div class="kpi-grid hidden-until-calc">
+                <div class="kpi-card">
+                  <div class="kpi-label" data-i18n="car.result.monthly">Monthly Lease Payment</div>
+                  <div class="kpi-value" id="kpiMonthly">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label" data-i18n="car.result.total">Total Lease Cost</div>
+                  <div class="kpi-value" id="kpiTotal">—</div>
+                </div>
+                <!-- Malaysia KPIs -->
+                <div class="kpi-card field-my">
+                  <div class="kpi-label" data-i18n="car.result.roadTax">Annual Road Tax</div>
+                  <div class="kpi-value" id="kpiRoadTax">—</div>
+                </div>
+                <div class="kpi-card field-my">
+                  <div class="kpi-label" data-i18n="car.result.insurance">Annual Insurance</div>
+                  <div class="kpi-value" id="kpiInsurance">—</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="result-actions hidden-until-calc" id="resultActions">
+              <button class="btn btn-outline" id="copyResults" data-i18n="calc.copyResults" disabled>Copy Results</button>
+              <button class="btn btn-outline" id="shareResults" data-i18n="calc.share" disabled>Share Link</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- All Calculators -->
+    <section class="all-calc-section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="allcalc.title">All Calculators</h2>
+        <p class="section-desc" data-i18n="allcalc.desc">Explore our full suite of free online calculators.</p>
+        <div class="all-calc-grid">
+          <a href="index.html" class="all-calc-card">
+            <span class="all-calc-icon">🔢</span>
+            <span data-i18n="nav.basic">Basic</span>
+          </a>
+          <a href="loan.html" class="all-calc-card">
+            <span class="all-calc-icon">💰</span>
+            <span data-i18n="nav.loan">Loan</span>
+          </a>
+          <a href="mortgage.html" class="all-calc-card">
+            <span class="all-calc-icon">🏠</span>
+            <span data-i18n="nav.mortgage">Mortgage</span>
+          </a>
+          <a href="investment.html" class="all-calc-card">
+            <span class="all-calc-icon">📈</span>
+            <span data-i18n="nav.investment">Investment</span>
+          </a>
+          <a href="vat.html" class="all-calc-card">
+            <span class="all-calc-icon">🧮</span>
+            <span data-i18n="nav.vat">VAT/Tax</span>
+          </a>
+          <a href="salary.html" class="all-calc-card">
+            <span class="all-calc-icon">💵</span>
+            <span data-i18n="nav.salary">Salary</span>
+          </a>
+          <a href="car-lease.html" class="all-calc-card active">
+            <span class="all-calc-icon">🚗</span>
+            <span data-i18n="nav.carLease">Car Lease</span>
+          </a>
+          <a href="profit-margin.html" class="all-calc-card">
+            <span class="all-calc-icon">📊</span>
+            <span data-i18n="nav.profit">Profit Margin</span>
+          </a>
+          <a href="rental-yield.html" class="all-calc-card">
+            <span class="all-calc-icon">🏢</span>
+            <span data-i18n="nav.rental">Rental Yield</span>
+          </a>
+          <a href="equipment-lease.html" class="all-calc-card">
+            <span class="all-calc-icon">🏭</span>
+            <span data-i18n="nav.equipment">Equipment Lease</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── FOOTER (Shared) ─── -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="logo.svg" alt="Calculator Pro Logo" width="28" height="28" />
+        <span data-i18n="brand.name">Calculator Pro</span>
+      </div>
+      <p class="footer-copy" data-i18n="footer.copy">&copy; 2026 Calculator Pro. All calculators free to use.</p>
+      <div class="footer-links">
+        <a href="#" data-i18n="footer.privacy">Privacy</a>
+        <a href="#" data-i18n="footer.terms">Terms</a>
+        <a href="#" data-i18n="footer.contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-to-top" data-i18n="nav.top">Back to top</a>
+
+  <script src="i18n.js" defer></script>
+  <script src="auth.js" defer></script>
+  <script src="car-lease.js" defer></script>
+</body>
+</html>
