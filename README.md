@@ -3,7 +3,7 @@
 A free, multi-language business calculator website with 10 calculators. Supports English, 华文, and Bahasa Melayu. Country-specific algorithms for Malaysia (RM), China (CNY), US (USD), and more.
 
 ## Live Demo
-👉 https://YOUR_USERNAME.github.io/calculator-pro
+👉 https://profunction.github.io/calculator-pro
 
 ## Calculators
 1. Scientific Calculator
