@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://profunction.github.io/calculator-pro/sitemap.xml
+Sitemap: https://calculatorpro.my/sitemap.xml
