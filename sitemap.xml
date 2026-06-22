@@ -60,16 +60,4 @@
     <priority>0.7</priority>
     <lastmod>2026-06-22</lastmod>
   </url>
-  <url>
-    <loc>https://profunction.github.io/calculator-pro/login.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-    <lastmod>2026-06-22</lastmod>
-  </url>
-  <url>
-    <loc>https://profunction.github.io/calculator-pro/register.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-    <lastmod>2026-06-22</lastmod>
-  </url>
 </urlset>
