@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /login.html
-Disallow: /register.html
 
 Sitemap: https://profunction.github.io/calculator-pro/sitemap.xml
