@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credit Card Payoff Calculator - Calculator Pro</title>
+  <meta name="description" content="Create a plan to pay off your credit card debt. See how long it will take, how much interest you will pay, and how increasing payments can save you money." />
+  <meta name="keywords" content="credit card payoff calculator, credit card debt, debt payoff, APR calculator, payoff plan, credit card interest, debt snowball, minimum payment calculator" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <link rel="canonical" href="https://calculatorpro.my/credit-card.html" />
+  <meta property="og:title" content="Credit Card Payoff Calculator - Calculator Pro" />
+  <meta property="og:description" content="Create a plan to pay off your credit card debt. See how long it will take, how much interest you will pay, and how increasing payments can save you money." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Calculator Pro" />
+  <meta property="og:url" content="https://calculatorpro.my/credit-card.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" hreflang="en" href="https://calculatorpro.my/credit-card.html" />
+  <link rel="alternate" hreflang="zh" href="https://calculatorpro.my/credit-card.html" />
+  <link rel="alternate" hreflang="ms" href="https://calculatorpro.my/credit-card.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calculatorpro.my/credit-card.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="auth.css" />
+  <link rel="stylesheet" href="seo-faq.css" />
+  <link rel="stylesheet" href="pdf-notes.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Credit Card Payoff Calculator",
+  "description": "Create a plan to pay off your credit card debt. See how long it will take, how much interest you will pay, and how increasing payments can save you money.",
+  "url": "https://calculatorpro.my/credit-card.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the fastest way to pay off credit card debt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two popular strategies are the debt snowball (pay smallest balance first for psychological wins) and debt avalanche (pay highest interest first to minimize total interest). Both require making at least minimum payments on all cards while putting extra toward the targeted card."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use a balance transfer to pay off credit card debt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A balance transfer to a 0% APR card can save significant interest if you can pay the balance within the promotional period (usually 12-18 months). Watch out for balance transfer fees (typically 3-5%) and avoid making new purchases on the card."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does making only minimum payments affect me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Making only minimum payments extends your repayment period dramatically. A $5,000 balance at 20% APR with minimum payments of $100 could take over 9 years to repay and cost nearly double the original amount in interest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I negotiate a lower interest rate on my credit card?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, you can call your credit card issuer and request a lower APR. If you have a good payment history and credit score, they may accommodate. Even a 2-3% reduction can save hundreds in interest over time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does closing a paid-off credit card hurt my credit score?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Closing a credit card can lower your credit score by reducing your total available credit and increasing your credit utilization ratio. It may also shorten your average credit age. Consider keeping the card open with no balance unless it has an annual fee."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" id="top" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Calculator Pro - Home">
+        <img src="logo.svg" alt="Calculator Pro Logo" width="32" height="32" />
+        <span>Calculator Pro</span>
+      </a>
+      <nav class="nav-links" id="navLinks" role="navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="loan.html" class="nav-link">Loan</a>
+        <a href="mortgage.html" class="nav-link">Mortgage</a>
+        <a href="compound-interest.html" class="nav-link">Compound</a>
+        <a href="savings.html" class="nav-link">Savings</a>
+        <a href="retirement.html" class="nav-link">Retirement</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+    <section class="hero-section">
+      <div class="container">
+        <h1>credit_card Credit Card Payoff Calculator</h1>
+        <p class="hero-subtitle">Create a plan to pay off your credit card debt. See how long it will take, how much interest you will pay, and how increasing payments can save you money.</p>
+      </div>
+    </section>
+
+    <section class="calc-section">
+      <div class="container">
+        <div class="calc-grid-2">
+          <div class="calc-form-card">
+            <form id="calcForm" autocomplete="off">
+<div class="form-group">
+              <label for="balance">Credit Card Balance ($)</label>
+              <input type="number" id="balance" placeholder="Current balance owed" step="100" />
+            </div>
+<div class="form-group">
+              <label for="apr">Annual Percentage Rate (%)</label>
+              <input type="number" id="apr" placeholder="Credit card APR" max="50" step="0.01" />
+            </div>
+<div class="form-group">
+              <label for="monthlyPayment">Monthly Payment ($)</label>
+              <input type="number" id="monthlyPayment" placeholder="Amount you pay each month" min="1" step="10" />
+            </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+                <button type="reset" class="btn btn-outline">Reset</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="calc-results-wrap">
+            <div class="dashboard" id="dashboard">
+              <p class="dash-prompt" id="dashPrompt">Enter values and click Calculate.</p>
+              <div class="kpi-grid hidden-until-calc" id="kpiGrid">
+<div class="kpi-card">
+                  <div class="kpi-label">Months to Pay Off</div>
+                  <div class="kpi-value" id="kpi_monthsToPayoff">--</div>
+                </div>
+<div class="kpi-card">
+                  <div class="kpi-label">Total Interest</div>
+                  <div class="kpi-value" id="kpi_totalInterest">--</div>
+                </div>
+<div class="kpi-card">
+                  <div class="kpi-label">Total Cost</div>
+                  <div class="kpi-value" id="kpi_totalCost">--</div>
+                </div>
+              </div>
+              <div class="chart-section hidden-until-calc" id="chartSection">
+                <canvas id="calcChart" class="chart-canvas"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pdf-notes-section" id="pdfNotesSection">
+          <div class="pdf-viewer-card">
+            <h3 class="pdf-notes-title">PDF Document Viewer</h3>
+            <p class="pdf-notes-desc">Upload a PDF to view alongside your calculations.</p>
+            <div class="pdf-upload-area" id="pdfUploadArea">
+              <input type="file" id="pdfFileInput" accept=".pdf" hidden />
+              <button class="btn btn-outline" id="pdfUploadBtn" type="button">Upload PDF</button>
+              <span class="pdf-file-name" id="pdfFileName">No file selected</span>
+            </div>
+            <div class="pdf-preview-container" id="pdfPreviewContainer">
+              <iframe id="pdfIframe" class="pdf-iframe" style="display:none;"></iframe>
+            </div>
+          </div>
+
+          <div class="notes-card">
+            <h3 class="pdf-notes-title">Notes</h3>
+            <p class="pdf-notes-desc">Record your calculation notes here. Saved locally on your device.</p>
+            <textarea class="notes-textarea" id="calcNotes" placeholder="Type your notes here..." rows="6"></textarea>
+            <div class="notes-actions">
+              <button class="btn btn-outline btn-sm" id="saveNotesBtn" type="button">Save Notes</button>
+              <button class="btn btn-outline btn-sm" id="clearNotesBtn" type="button">Clear</button>
+              <span class="notes-saved-indicator" id="notesSavedIndicator"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="seo-faq-section" id="seoFaqSection">
+          <h2 class="seo-faq-heading">Frequently Asked Questions - Credit Card Payoff Calculator</h2>
+<div class="seo-faq-item">
+            <h4 class="seo-faq-question">What is the fastest way to pay off credit card debt?</h4>
+            <p class="seo-faq-answer">Two popular strategies are the debt snowball (pay smallest balance first for psychological wins) and debt avalanche (pay highest interest first to minimize total interest). Both require making at least minimum payments on all cards while putting extra toward the targeted card.</p>
+          </div>
+<div class="seo-faq-item">
+            <h4 class="seo-faq-question">Should I use a balance transfer to pay off credit card debt?</h4>
+            <p class="seo-faq-answer">A balance transfer to a 0% APR card can save significant interest if you can pay the balance within the promotional period (usually 12-18 months). Watch out for balance transfer fees (typically 3-5%) and avoid making new purchases on the card.</p>
+          </div>
+<div class="seo-faq-item">
+            <h4 class="seo-faq-question">How does making only minimum payments affect me?</h4>
+            <p class="seo-faq-answer">Making only minimum payments extends your repayment period dramatically. A $5,000 balance at 20% APR with minimum payments of $100 could take over 9 years to repay and cost nearly double the original amount in interest.</p>
+          </div>
+<div class="seo-faq-item">
+            <h4 class="seo-faq-question">Can I negotiate a lower interest rate on my credit card?</h4>
+            <p class="seo-faq-answer">Yes, you can call your credit card issuer and request a lower APR. If you have a good payment history and credit score, they may accommodate. Even a 2-3% reduction can save hundreds in interest over time.</p>
+          </div>
+<div class="seo-faq-item">
+            <h4 class="seo-faq-question">Does closing a paid-off credit card hurt my credit score?</h4>
+            <p class="seo-faq-answer">Closing a credit card can lower your credit score by reducing your total available credit and increasing your credit utilization ratio. It may also shorten your average credit age. Consider keeping the card open with no balance unless it has an annual fee.</p>
+          </div>
+        </div>
+
+        <div class="all-calc-section">
+          <h2 class="section-title">All Calculators</h2>
+          <p class="section-desc">Explore our full suite of free online calculators.</p>
+          <div class="all-calc-grid">
+<a href="index.html" class="all-calc-card"><span class="all-calc-icon">🔢</span><span>Basic Calculator</span></a>
+          <a href="loan.html" class="all-calc-card"><span class="all-calc-icon">💰</span><span>Loan Calculator</span></a>
+          <a href="mortgage.html" class="all-calc-card"><span class="all-calc-icon">🏠</span><span>Mortgage Calculator</span></a>
+          <a href="investment.html" class="all-calc-card"><span class="all-calc-icon">📈</span><span>Investment Calculator</span></a>
+          <a href="vat.html" class="all-calc-card"><span class="all-calc-icon">🧾</span><span>VAT/Tax Calculator</span></a>
+          <a href="salary.html" class="all-calc-card"><span class="all-calc-icon">💼</span><span>Salary Calculator</span></a>
+          <a href="car-lease.html" class="all-calc-card"><span class="all-calc-icon">🚗</span><span>Car Lease Calculator</span></a>
+          <a href="profit-margin.html" class="all-calc-card"><span class="all-calc-icon">📊</span><span>Profit Margin Calculator</span></a>
+          <a href="rental-yield.html" class="all-calc-card"><span class="all-calc-icon">🏢</span><span>Rental Yield Calculator</span></a>
+          <a href="equipment-lease.html" class="all-calc-card"><span class="all-calc-icon">🏭</span><span>Equipment Lease Calculator</span></a>
+          <a href="compound-interest.html" class="all-calc-card"><span class="all-calc-icon">bank</span><span>Compound Interest Calculator</span></a>
+          <a href="savings.html" class="all-calc-card"><span class="all-calc-icon">piggy</span><span>Savings Calculator</span></a>
+          <a href="retirement.html" class="all-calc-card"><span class="all-calc-icon">beach_umbrella</span><span>Retirement Calculator</span></a>
+          <a href="credit-card.html" class="all-calc-card active"><span class="all-calc-icon">credit_card</span><span>Credit Card Payoff Calculator</span></a>
+          <a href="student-loan.html" class="all-calc-card"><span class="all-calc-icon">mortar_board</span><span>Student Loan Calculator</span></a>
+          <a href="auto-loan.html" class="all-calc-card"><span class="all-calc-icon">car</span><span>Auto Loan Calculator</span></a>
+          <a href="break-even.html" class="all-calc-card"><span class="all-calc-icon">balance_scale</span><span>Break-Even Calculator</span></a>
+          <a href="discount.html" class="all-calc-card"><span class="all-calc-icon">label</span><span>Discount Calculator</span></a>
+          <a href="markup.html" class="all-calc-card"><span class="all-calc-icon">chart_increasing</span><span>Markup Calculator</span></a>
+          <a href="commission.html" class="all-calc-card"><span class="all-calc-icon">handshake</span><span>Commission Calculator</span></a>
+          <a href="cash-flow.html" class="all-calc-card"><span class="all-calc-icon">money_with_wings</span><span>Cash Flow Calculator</span></a>
+          <a href="depreciation.html" class="all-calc-card"><span class="all-calc-icon">chart_decreasing</span><span>Depreciation Calculator</span></a>
+          <a href="roi.html" class="all-calc-card"><span class="all-calc-icon">dart</span><span>ROI Calculator</span></a>
+          <a href="income-tax.html" class="all-calc-card"><span class="all-calc-icon">clipboard</span><span>Income Tax Calculator</span></a>
+          <a href="sales-tax.html" class="all-calc-card"><span class="all-calc-icon">abacus</span><span>Sales Tax Calculator</span></a>
+          <a href="capital-gains.html" class="all-calc-card"><span class="all-calc-icon">chart_increasing</span><span>Capital Gains Tax Calculator</span></a>
+          <a href="percentage.html" class="all-calc-card"><span class="all-calc-icon">%</span><span>Percentage Calculator</span></a>
+          <a href="unit-converter.html" class="all-calc-card"><span class="all-calc-icon">arrows_clockwise</span><span>Unit Converter</span></a>
+          <a href="age.html" class="all-calc-card"><span class="all-calc-icon">birthday_cake</span><span>Age Calculator</span></a>
+          <a href="date-diff.html" class="all-calc-card"><span class="all-calc-icon">calendar</span><span>Date Difference Calculator</span></a>
+          <a href="bmi.html" class="all-calc-card"><span class="all-calc-icon">balance_scale</span><span>BMI Calculator</span></a>
+          <a href="calorie.html" class="all-calc-card"><span class="all-calc-icon">fire</span><span>Calorie Calculator</span></a>
+          <a href="down-payment.html" class="all-calc-card"><span class="all-calc-icon">dollar_banknote</span><span>Down Payment Calculator</span></a>
+          <a href="refinance.html" class="all-calc-card"><span class="all-calc-icon">arrows_clockwise</span><span>Refinance Calculator</span></a>
+          <a href="tip.html" class="all-calc-card"><span class="all-calc-icon">coffee</span><span>Tip Calculator</span></a>
+          <a href="fuel-cost.html" class="all-calc-card"><span class="all-calc-icon">fuel_pump</span><span>Fuel Cost Calculator</span></a>
+          <a href="gpa.html" class="all-calc-card"><span class="all-calc-icon">book</span><span>GPA Calculator</span></a>
+          <a href="inflation.html" class="all-calc-card"><span class="all-calc-icon">chart_decreasing</span><span>Inflation Calculator</span></a>
+          <a href="currency.html" class="all-calc-card"><span class="all-calc-icon">currency_exchange</span><span>Currency Converter</span></a>
+          <a href="net-worth.html" class="all-calc-card"><span class="all-calc-icon">gem</span><span>Net Worth Calculator</span></a>
+                    </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="logo.svg" alt="Calculator Pro Logo" width="28" height="28" />
+        <span>Calculator Pro</span>
+      </div>
+      <p class="footer-copy">2026 Calculator Pro. All calculators free to use.</p>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-to-top">Back to top</a>
+
+  <script src="i18n.js" defer></script>
+  <script src="auth.js" defer></script>
+  <script src="pdf-notes.js" defer></script>
+  <script src="credit-card.js" defer></script>
+</body>
+</html>

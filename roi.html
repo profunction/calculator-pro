@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROI Calculator - Calculator Pro</title>
+  <meta name="description" content="Measure your return on investment with precision. Calculate ROI percentage, annualized returns, and compare investment performance against benchmarks." />
+  <meta name="keywords" content="ROI calculator, return on investment, investment calculator, annualized return, investment performance, ROI formula, business investment, profitability calculator" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <link rel="canonical" href="https://calculatorpro.my/roi.html" />
+  <meta property="og:title" content="ROI Calculator - Calculator Pro" />
+  <meta property="og:description" content="Measure your return on investment with precision. Calculate ROI percentage, annualized returns, and compare investment performance against benchmarks." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Calculator Pro" />
+  <meta property="og:url" content="https://calculatorpro.my/roi.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" hreflang="en" href="https://calculatorpro.my/roi.html" />
+  <link rel="alternate" hreflang="zh" href="https://calculatorpro.my/roi.html" />
+  <link rel="alternate" hreflang="ms" href="https://calculatorpro.my/roi.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calculatorpro.my/roi.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="auth.css" />
+  <link rel="stylesheet" href="seo-faq.css" />
+  <link rel="stylesheet" href="pdf-notes.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "ROI Calculator",
+  "description": "Measure your return on investment with precision. Calculate ROI percentage, annualized returns, and compare investment performance against benchmarks.",
+  "url": "https://calculatorpro.my/roi.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a good ROI for a business investment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A good ROI depends on the industry, risk level, and opportunity cost. Generally, 15-30% annual ROI is considered strong for business ventures. Stock market investments historically return 7-10% annually. Higher risk investments demand higher target returns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between ROI and IRR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ROI calculates total return as a percentage of initial investment without accounting for the time value of money. IRR (Internal Rate of Return) is more sophisticated, accounting for the timing of cash flows. Use IRR for multi-year projects with irregular cash flows."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate ROI for marketing campaigns?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Marketing ROI = (Revenue from Campaign - Campaign Cost) / Campaign Cost x 100. Track attribution carefully using unique URLs, promo codes, or tracking pixels. Consider customer lifetime value rather than just initial purchase revenue."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the limitations of using ROI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ROI does not account for risk, time value of money (unless annualized), non-financial benefits, or opportunity costs. It can be manipulated by how costs and returns are defined. Always use ROI alongside other metrics like payback period and NPV."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I include opportunity cost in my ROI calculation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, for comprehensive analysis. At minimum, compare your ROI against a risk-free rate (government bonds) to see if the additional return compensates for the additional risk. This gives context to whether the investment was truly worthwhile."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" id="top" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Calculator Pro - Home">
+        <img src="logo.svg" alt="Calculator Pro Logo" width="32" height="32" />
+        <span>Calculator Pro</span>
+      </a>
+      <nav class="nav-links" id="navLinks" role="navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="loan.html" class="nav-link">Loan</a>
+        <a href="mortgage.html" class="nav-link">Mortgage</a>
+        <a href="compound-interest.html" class="nav-link">Compound</a>
+        <a href="savings.html" class="nav-link">Savings</a>
+        <a href="retirement.html" class="nav-link">Retirement</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+    <section class="hero-section">
+      <div class="container">
+        <h1>dart ROI Calculator</h1>
+        <p class="hero-subtitle">Measure your return on investment with precision. Calculate ROI percentage, annualized returns, and compare investment performance against benchmarks.</p>
+      </div>
+    </section>
+
+    <section class="calc-section">
+      <div class="container">
+        <div class="calc-grid-2">
+          <div class="calc-form-card">
+            <form id="calcForm" autocomplete="off">
+<div class="form-group">
+              <label for="investmentAmount">Investment Amount ($)</label>
+              <input type="number" id="investmentAmount" placeholder="Initial investment" step="100" />
+            </div>
+<div class="form-group">
+              <label for="returnAmount">Final Return ($)</label>
+              <input type="number" id="returnAmount" placeholder="Total value at exit" step="100" />
+            </div>
+<div class="form-group">
+              <label for="timeYears">Investment Period (Years)</label>
+              <input type="number" id="timeYears" placeholder="How long you held the investment" min="0.1" step="0.5" />
+            </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+                <button type="reset" class="btn btn-outline">Reset</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="calc-results-wrap">
+            <div class="dashboard" id="dashboard">
+              <p class="dash-prompt" id="dashPrompt">Enter values and click Calculate.</p>
+              <div class="kpi-grid hidden-until-calc" id="kpiGrid">
+<div class="kpi-card">
+                  <div class="kpi-label">ROI</div>
+                  <div class="kpi-value kpi-text" id="kpi_roiPercent">--</div>
+                </div>
+<div class="kpi-card">
+                  <div class="kpi-label">Net Profit</div>
+                  <div class="kpi-value" id="kpi_netProfit">--</div>
+                </div>
+<div class="kpi-card">
+                  <div class="kpi-label">Annualized ROI</div>
+                  <div class="kpi-value kpi-text" id="kpi_annualizedROI">--</div>
+                </div>
+              </div>
+              <div class="chart-section hidden-until-calc" id="chartSection">
+                <canvas id="calcChart" class="chart-canvas"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pdf-notes-section" id="pdfNotesSection">
+          <div class="pdf-viewer-card">
+            <h3 class="pdf-notes-title">PDF Document Viewer</h3>
+            <p class="pdf-notes-desc">Upload a PDF to view alongside your calculations.</p>
+            <div class="pdf-upload-area" id="pdfUploadArea">
+              <input type="file" id="pdfFileInput" accept=".pdf" hidden />
+              <button class="btn btn-outline" id="pdfUploadBtn" type="button">Upload PDF</button>
+              <span class="pdf-file-name" id="pdfFileName">No file selected</span>
+            </div>
+            <div class="pdf-preview-container" id="pdfPreviewContainer">
+              <iframe id="pdfIframe" class="pdf-iframe" style="display:none;"></iframe>
+            </div>
+          </div>
+
+          <div class="notes-card">
+            <h3 class="pdf-notes-title">Notes</h3>
+            <p class="pdf-notes-desc">Record your calculation notes here. Saved locally on your device.</p>
+            <textarea class="notes-textarea" id="calcNotes" placeholder="Type your notes here..." rows="6"></textarea>
+            <div class="notes-actions">
+              <button class="btn btn-outline btn-sm" id="saveNotesBtn" type="button">Save Notes</button>
+              <button class="btn btn-outline btn-sm" id="clearNotesBtn" type="button">Clear</button>
+              <span class="notes-saved-indicator" id="notesSavedIndicator"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="seo-faq-section" id="seoFaqSection">
+          <h2 class="seo-faq-heading">Frequently Asked Questions - ROI Calculator</h2>
+<div class="seo-faq-item">
+            <h4 class="seo-faq-question">What is a good ROI for a business investment?</h4>
+            <p class="seo-faq-answer">A good ROI depends on the industry, risk level, and opportunity cost. Generally, 15-30% annual ROI is considered strong for business ventures. Stock market investments historically return 7-10% annually. Higher risk investments demand higher target returns.</p>
+          </div>
+<div class="seo-faq-item">
+            <h4 class="seo-faq-question">What is the difference between ROI and IRR?</h4>
+            <p class="seo-faq-answer">ROI calculates total return as a percentage of initial investment without accounting for the time value of money. IRR (Internal Rate of Return) is more sophisticated, accounting for the timing of cash flows. Use IRR for multi-year projects with irregular cash flows.</p>
+          </div>
+<div class="seo-faq-item">
+            <h4 class="seo-faq-question">How do I calculate ROI for marketing campaigns?</h4>
+            <p class="seo-faq-answer">Marketing ROI = (Revenue from Campaign - Campaign Cost) / Campaign Cost x 100. Track attribution carefully using unique URLs, promo codes, or tracking pixels. Consider customer lifetime value rather than just initial purchase revenue.</p>
+          </div>
+<div class="seo-faq-item">
+            <h4 class="seo-faq-question">What are the limitations of using ROI?</h4>
+            <p class="seo-faq-answer">ROI does not account for risk, time value of money (unless annualized), non-financial benefits, or opportunity costs. It can be manipulated by how costs and returns are defined. Always use ROI alongside other metrics like payback period and NPV.</p>
+          </div>
+<div class="seo-faq-item">
+            <h4 class="seo-faq-question">Should I include opportunity cost in my ROI calculation?</h4>
+            <p class="seo-faq-answer">Yes, for comprehensive analysis. At minimum, compare your ROI against a risk-free rate (government bonds) to see if the additional return compensates for the additional risk. This gives context to whether the investment was truly worthwhile.</p>
+          </div>
+        </div>
+
+        <div class="all-calc-section">
+          <h2 class="section-title">All Calculators</h2>
+          <p class="section-desc">Explore our full suite of free online calculators.</p>
+          <div class="all-calc-grid">
+<a href="index.html" class="all-calc-card"><span class="all-calc-icon">🔢</span><span>Basic Calculator</span></a>
+          <a href="loan.html" class="all-calc-card"><span class="all-calc-icon">💰</span><span>Loan Calculator</span></a>
+          <a href="mortgage.html" class="all-calc-card"><span class="all-calc-icon">🏠</span><span>Mortgage Calculator</span></a>
+          <a href="investment.html" class="all-calc-card"><span class="all-calc-icon">📈</span><span>Investment Calculator</span></a>
+          <a href="vat.html" class="all-calc-card"><span class="all-calc-icon">🧾</span><span>VAT/Tax Calculator</span></a>
+          <a href="salary.html" class="all-calc-card"><span class="all-calc-icon">💼</span><span>Salary Calculator</span></a>
+          <a href="car-lease.html" class="all-calc-card"><span class="all-calc-icon">🚗</span><span>Car Lease Calculator</span></a>
+          <a href="profit-margin.html" class="all-calc-card"><span class="all-calc-icon">📊</span><span>Profit Margin Calculator</span></a>
+          <a href="rental-yield.html" class="all-calc-card"><span class="all-calc-icon">🏢</span><span>Rental Yield Calculator</span></a>
+          <a href="equipment-lease.html" class="all-calc-card"><span class="all-calc-icon">🏭</span><span>Equipment Lease Calculator</span></a>
+          <a href="compound-interest.html" class="all-calc-card"><span class="all-calc-icon">bank</span><span>Compound Interest Calculator</span></a>
+          <a href="savings.html" class="all-calc-card"><span class="all-calc-icon">piggy</span><span>Savings Calculator</span></a>
+          <a href="retirement.html" class="all-calc-card"><span class="all-calc-icon">beach_umbrella</span><span>Retirement Calculator</span></a>
+          <a href="credit-card.html" class="all-calc-card"><span class="all-calc-icon">credit_card</span><span>Credit Card Payoff Calculator</span></a>
+          <a href="student-loan.html" class="all-calc-card"><span class="all-calc-icon">mortar_board</span><span>Student Loan Calculator</span></a>
+          <a href="auto-loan.html" class="all-calc-card"><span class="all-calc-icon">car</span><span>Auto Loan Calculator</span></a>
+          <a href="break-even.html" class="all-calc-card"><span class="all-calc-icon">balance_scale</span><span>Break-Even Calculator</span></a>
+          <a href="discount.html" class="all-calc-card"><span class="all-calc-icon">label</span><span>Discount Calculator</span></a>
+          <a href="markup.html" class="all-calc-card"><span class="all-calc-icon">chart_increasing</span><span>Markup Calculator</span></a>
+          <a href="commission.html" class="all-calc-card"><span class="all-calc-icon">handshake</span><span>Commission Calculator</span></a>
+          <a href="cash-flow.html" class="all-calc-card"><span class="all-calc-icon">money_with_wings</span><span>Cash Flow Calculator</span></a>
+          <a href="depreciation.html" class="all-calc-card"><span class="all-calc-icon">chart_decreasing</span><span>Depreciation Calculator</span></a>
+          <a href="roi.html" class="all-calc-card active"><span class="all-calc-icon">dart</span><span>ROI Calculator</span></a>
+          <a href="income-tax.html" class="all-calc-card"><span class="all-calc-icon">clipboard</span><span>Income Tax Calculator</span></a>
+          <a href="sales-tax.html" class="all-calc-card"><span class="all-calc-icon">abacus</span><span>Sales Tax Calculator</span></a>
+          <a href="capital-gains.html" class="all-calc-card"><span class="all-calc-icon">chart_increasing</span><span>Capital Gains Tax Calculator</span></a>
+          <a href="percentage.html" class="all-calc-card"><span class="all-calc-icon">%</span><span>Percentage Calculator</span></a>
+          <a href="unit-converter.html" class="all-calc-card"><span class="all-calc-icon">arrows_clockwise</span><span>Unit Converter</span></a>
+          <a href="age.html" class="all-calc-card"><span class="all-calc-icon">birthday_cake</span><span>Age Calculator</span></a>
+          <a href="date-diff.html" class="all-calc-card"><span class="all-calc-icon">calendar</span><span>Date Difference Calculator</span></a>
+          <a href="bmi.html" class="all-calc-card"><span class="all-calc-icon">balance_scale</span><span>BMI Calculator</span></a>
+          <a href="calorie.html" class="all-calc-card"><span class="all-calc-icon">fire</span><span>Calorie Calculator</span></a>
+          <a href="down-payment.html" class="all-calc-card"><span class="all-calc-icon">dollar_banknote</span><span>Down Payment Calculator</span></a>
+          <a href="refinance.html" class="all-calc-card"><span class="all-calc-icon">arrows_clockwise</span><span>Refinance Calculator</span></a>
+          <a href="tip.html" class="all-calc-card"><span class="all-calc-icon">coffee</span><span>Tip Calculator</span></a>
+          <a href="fuel-cost.html" class="all-calc-card"><span class="all-calc-icon">fuel_pump</span><span>Fuel Cost Calculator</span></a>
+          <a href="gpa.html" class="all-calc-card"><span class="all-calc-icon">book</span><span>GPA Calculator</span></a>
+          <a href="inflation.html" class="all-calc-card"><span class="all-calc-icon">chart_decreasing</span><span>Inflation Calculator</span></a>
+          <a href="currency.html" class="all-calc-card"><span class="all-calc-icon">currency_exchange</span><span>Currency Converter</span></a>
+          <a href="net-worth.html" class="all-calc-card"><span class="all-calc-icon">gem</span><span>Net Worth Calculator</span></a>
+                    </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="logo.svg" alt="Calculator Pro Logo" width="28" height="28" />
+        <span>Calculator Pro</span>
+      </div>
+      <p class="footer-copy">2026 Calculator Pro. All calculators free to use.</p>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-to-top">Back to top</a>
+
+  <script src="i18n.js" defer></script>
+  <script src="auth.js" defer></script>
+  <script src="pdf-notes.js" defer></script>
+  <script src="roi.js" defer></script>
+</body>
+</html>

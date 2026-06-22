@@ -1843,3 +1843,14 @@ img { max-width: 100%; display: block; }
   .dashboard { display: block !important; }
   .calc-results-wrap { width: 100% !important; }
 }
+
+/* ── Calculator Category Title ── */
+.calc-category-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.25rem;
+}

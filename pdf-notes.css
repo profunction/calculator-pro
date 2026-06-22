@@ -1,0 +1,95 @@
+/* =====================================================
+   Calculator Pro — pdf-notes.css
+   PDF Viewer + Notes Section Styles
+   ===================================================== */
+
+.pdf-notes-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+  padding: 0 16px;
+}
+
+@media (max-width: 768px) {
+  .pdf-notes-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pdf-viewer-card,
+.notes-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.pdf-notes-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.pdf-notes-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.pdf-upload-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.pdf-file-name {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.pdf-preview-container {
+  width: 100%;
+}
+
+.pdf-iframe {
+  width: 100%;
+  height: 400px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.notes-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg-input);
+  resize: vertical;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.notes-textarea:focus {
+  border-color: var(--primary);
+}
+
+.notes-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.notes-saved-indicator {
+  font-size: 13px;
+  font-weight: 600;
+  transition: opacity var(--transition);
+}

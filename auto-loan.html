@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto Loan Calculator - Calculator Pro</title>
+  <meta name="description" content="Calculate your car loan payments instantly. Factor in down payment, trade-in value, and loan term to see your true monthly cost before visiting the dealership." />
+  <meta name="keywords" content="auto loan calculator, car payment calculator, car financing, vehicle loan, monthly car payment, auto financing, car loan interest, car affordability" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <link rel="canonical" href="https://calculatorpro.my/auto-loan.html" />
+  <meta property="og:title" content="Auto Loan Calculator - Calculator Pro" />
+  <meta property="og:description" content="Calculate your car loan payments instantly. Factor in down payment, trade-in value, and loan term to see your true monthly cost before visiting the dealership." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Calculator Pro" />
+  <meta property="og:url" content="https://calculatorpro.my/auto-loan.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" hreflang="en" href="https://calculatorpro.my/auto-loan.html" />
+  <link rel="alternate" hreflang="zh" href="https://calculatorpro.my/auto-loan.html" />
+  <link rel="alternate" hreflang="ms" href="https://calculatorpro.my/auto-loan.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calculatorpro.my/auto-loan.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="auth.css" />
+  <link rel="stylesheet" href="seo-faq.css" />
+  <link rel="stylesheet" href="pdf-notes.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Auto Loan Calculator",
+  "description": "Calculate your car loan payments instantly. Factor in down payment, trade-in value, and loan term to see your true monthly cost before visiting the dealership.",
+  "url": "https://calculatorpro.my/auto-loan.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much should I put down on a car?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aim for at least 20% of the purchase price as a down payment on a new car and 10% on a used car. A larger down payment reduces your monthly payment, total interest, and protects you from being underwater on the loan if the car depreciates quickly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a 72 or 84-month car loan a good idea?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Longer loan terms mean lower monthly payments but significantly more total interest. You also risk owing more than the car is worth for most of the loan. Limit your term to 60 months or less when possible, and never exceed 72 months."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I get pre-approved for an auto loan before shopping?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Getting pre-approved by a bank or credit union before visiting the dealership gives you negotiating power and a baseline rate to compare against dealer financing. It also helps you set a realistic budget before you start shopping."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is gap insurance and do I need it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gap insurance covers the difference between what you owe on your car loan and what the car is worth if it is totaled or stolen. It is recommended if you put less than 20% down or have a loan term over 60 months. Check if your auto insurer offers it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does my credit score affect my auto loan rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your credit score is the biggest factor in determining your interest rate. Borrowers with excellent credit (750+) can qualify for rates as low as 2-4%, while those with poor credit (below 600) may face rates of 15% or higher, adding thousands to the total cost."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" id="top" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Calculator Pro - Home">
+        <img src="logo.svg" alt="Calculator Pro Logo" width="32" height="32" />
+        <span>Calculator Pro</span>
+      </a>
+      <nav class="nav-links" id="navLinks" role="navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="loan.html" class="nav-link">Loan</a>
+        <a href="mortgage.html" class="nav-link">Mortgage</a>
+        <a href="compound-interest.html" class="nav-link">Compound</a>
+        <a href="savings.html" class="nav-link">Savings</a>
+        <a href="retirement.html" class="nav-link">Retirement</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+    <section class="hero-section">
+      <div class="container">
+        <h1>car Auto Loan Calculator</h1>
+        <p class="hero-subtitle">Calculate your car loan payments instantly. Factor in down payment, trade-in value, and loan term to see your true monthly cost before visiting the dealership.</p>
+      </div>
+    </section>
+
+    <section class="calc-section">
+      <div class="container">
+        <div class="calc-grid-2">
+          <div class="calc-form-card">
+            <form id="calcForm" autocomplete="off">
+<div class="form-group">
+              <label for="carPrice">Car Price ($)</label>
+              <input type="number" id="carPrice" placeholder="Vehicle purchase price" step="500" />
+            </div>
+<div class="form-group">
+              <label for="downPayment">Down Payment ($)</label>
+              <input type="number" id="downPayment" placeholder="Cash down payment" step="500" />
+            </div>
+<div class="form-group">
+              <label for="tradeInValue">Trade-In Value ($)</label>
+              <input type="number" id="tradeInValue" placeholder="Value of your trade-in" step="500" />
+            </div>
+<div class="form-group">
+              <label for="interestRate">Interest Rate (%)</label>
+              <input type="number" id="interestRate" placeholder="Annual percentage rate" max="30" step="0.01" />
+            </div>
+<div class="form-group">
+              <label for="termMonths">Loan Term (Months)</label>
+              <select id="termMonths">
+                <option value="24">24 Months</option>
+                <option value="36">36 Months</option>
+                <option value="48">48 Months</option>
+                <option value="60">60 Months</option>
+                <option value="72">72 Months</option>
+                <option value="84">84 Months</option>
+              </select>
+            </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+                <button type="reset" class="btn btn-outline">Reset</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="calc-results-wrap">
+            <div class="dashboard" id="dashboard">
+              <p class="dash-prompt" id="dashPrompt">Enter values and click Calculate.</p>
+              <div class="kpi-grid hidden-until-calc" id="kpiGrid">
+<div class="kpi-card">
+                  <div class="kpi-label">Monthly Payment</div>
+                  <div class="kpi-value" id="kpi_monthlyPayment">--</div>
+                </div>
+<div class="kpi-card">
+                  <div class="kpi-label">Loan Amount</div>
+                  <div class="kpi-value" id="kpi_loanAmount">--</div>
+                </div>
+<div class="kpi-card">
+                  <div class="kpi-label">Total Interest</div>
+                  <div class="kpi-value" id="kpi_totalInterest">--</div>
+                </div>
+              </div>
+              <div class="chart-section hidden-until-calc" id="chartSection">
+                <canvas id="calcChart" class="chart-canvas"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pdf-notes-section" id="pdfNotesSection">
+          <div class="pdf-viewer-card">
+            <h3 class="pdf-notes-title">PDF Document Viewer</h3>
+            <p class="pdf-notes-desc">Upload a PDF to view alongside your calculations.</p>
+            <div class="pdf-upload-area" id="pdfUploadArea">
+              <input type="file" id="pdfFileInput" accept=".pdf" hidden />
+              <button class="btn btn-outline" id="pdfUploadBtn" type="button">Upload PDF</button>
+              <span class="pdf-file-name" id="pdfFileName">No file selected</span>
+            </div>
+            <div class="pdf-preview-container" id="pdfPreviewContainer">
+              <iframe id="pdfIframe" class="pdf-iframe" style="display:none;"></iframe>
+            </div>
+          </div>
+
+          <div class="notes-card">
+            <h3 class="pdf-notes-title">Notes</h3>
+            <p class="pdf-notes-desc">Record your calculation notes here. Saved locally on your device.</p>
+            <textarea class="notes-textarea" id="calcNotes" placeholder="Type your notes here..." rows="6"></textarea>
+            <div class="notes-actions">
+              <button class="btn btn-outline btn-sm" id="saveNotesBtn" type="button">Save Notes</button>
+              <button class="btn btn-outline btn-sm" id="clearNotesBtn" type="button">Clear</button>
+              <span class="notes-saved-indicator" id="notesSavedIndicator"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="seo-faq-section" id="seoFaqSection">
+          <h2 class="seo-faq-heading">Frequently Asked Questions - Auto Loan Calculator</h2>
+<div class="seo-faq-item">
+            <h4 class="seo-faq-question">How much should I put down on a car?</h4>
+            <p class="seo-faq-answer">Aim for at least 20% of the purchase price as a down payment on a new car and 10% on a used car. A larger down payment reduces your monthly payment, total interest, and protects you from being underwater on the loan if the car depreciates quickly.</p>
+          </div>
+<div class="seo-faq-item">
+            <h4 class="seo-faq-question">Is a 72 or 84-month car loan a good idea?</h4>
+            <p class="seo-faq-answer">Longer loan terms mean lower monthly payments but significantly more total interest. You also risk owing more than the car is worth for most of the loan. Limit your term to 60 months or less when possible, and never exceed 72 months.</p>
+          </div>
+<div class="seo-faq-item">
+            <h4 class="seo-faq-question">Should I get pre-approved for an auto loan before shopping?</h4>
+            <p class="seo-faq-answer">Yes. Getting pre-approved by a bank or credit union before visiting the dealership gives you negotiating power and a baseline rate to compare against dealer financing. It also helps you set a realistic budget before you start shopping.</p>
+          </div>
+<div class="seo-faq-item">
+            <h4 class="seo-faq-question">What is gap insurance and do I need it?</h4>
+            <p class="seo-faq-answer">Gap insurance covers the difference between what you owe on your car loan and what the car is worth if it is totaled or stolen. It is recommended if you put less than 20% down or have a loan term over 60 months. Check if your auto insurer offers it.</p>
+          </div>
+<div class="seo-faq-item">
+            <h4 class="seo-faq-question">How does my credit score affect my auto loan rate?</h4>
+            <p class="seo-faq-answer">Your credit score is the biggest factor in determining your interest rate. Borrowers with excellent credit (750+) can qualify for rates as low as 2-4%, while those with poor credit (below 600) may face rates of 15% or higher, adding thousands to the total cost.</p>
+          </div>
+        </div>
+
+        <div class="all-calc-section">
+          <h2 class="section-title">All Calculators</h2>
+          <p class="section-desc">Explore our full suite of free online calculators.</p>
+          <div class="all-calc-grid">
+<a href="index.html" class="all-calc-card"><span class="all-calc-icon">🔢</span><span>Basic Calculator</span></a>
+          <a href="loan.html" class="all-calc-card"><span class="all-calc-icon">💰</span><span>Loan Calculator</span></a>
+          <a href="mortgage.html" class="all-calc-card"><span class="all-calc-icon">🏠</span><span>Mortgage Calculator</span></a>
+          <a href="investment.html" class="all-calc-card"><span class="all-calc-icon">📈</span><span>Investment Calculator</span></a>
+          <a href="vat.html" class="all-calc-card"><span class="all-calc-icon">🧾</span><span>VAT/Tax Calculator</span></a>
+          <a href="salary.html" class="all-calc-card"><span class="all-calc-icon">💼</span><span>Salary Calculator</span></a>
+          <a href="car-lease.html" class="all-calc-card"><span class="all-calc-icon">🚗</span><span>Car Lease Calculator</span></a>
+          <a href="profit-margin.html" class="all-calc-card"><span class="all-calc-icon">📊</span><span>Profit Margin Calculator</span></a>
+          <a href="rental-yield.html" class="all-calc-card"><span class="all-calc-icon">🏢</span><span>Rental Yield Calculator</span></a>
+          <a href="equipment-lease.html" class="all-calc-card"><span class="all-calc-icon">🏭</span><span>Equipment Lease Calculator</span></a>
+          <a href="compound-interest.html" class="all-calc-card"><span class="all-calc-icon">bank</span><span>Compound Interest Calculator</span></a>
+          <a href="savings.html" class="all-calc-card"><span class="all-calc-icon">piggy</span><span>Savings Calculator</span></a>
+          <a href="retirement.html" class="all-calc-card"><span class="all-calc-icon">beach_umbrella</span><span>Retirement Calculator</span></a>
+          <a href="credit-card.html" class="all-calc-card"><span class="all-calc-icon">credit_card</span><span>Credit Card Payoff Calculator</span></a>
+          <a href="student-loan.html" class="all-calc-card"><span class="all-calc-icon">mortar_board</span><span>Student Loan Calculator</span></a>
+          <a href="auto-loan.html" class="all-calc-card active"><span class="all-calc-icon">car</span><span>Auto Loan Calculator</span></a>
+          <a href="break-even.html" class="all-calc-card"><span class="all-calc-icon">balance_scale</span><span>Break-Even Calculator</span></a>
+          <a href="discount.html" class="all-calc-card"><span class="all-calc-icon">label</span><span>Discount Calculator</span></a>
+          <a href="markup.html" class="all-calc-card"><span class="all-calc-icon">chart_increasing</span><span>Markup Calculator</span></a>
+          <a href="commission.html" class="all-calc-card"><span class="all-calc-icon">handshake</span><span>Commission Calculator</span></a>
+          <a href="cash-flow.html" class="all-calc-card"><span class="all-calc-icon">money_with_wings</span><span>Cash Flow Calculator</span></a>
+          <a href="depreciation.html" class="all-calc-card"><span class="all-calc-icon">chart_decreasing</span><span>Depreciation Calculator</span></a>
+          <a href="roi.html" class="all-calc-card"><span class="all-calc-icon">dart</span><span>ROI Calculator</span></a>
+          <a href="income-tax.html" class="all-calc-card"><span class="all-calc-icon">clipboard</span><span>Income Tax Calculator</span></a>
+          <a href="sales-tax.html" class="all-calc-card"><span class="all-calc-icon">abacus</span><span>Sales Tax Calculator</span></a>
+          <a href="capital-gains.html" class="all-calc-card"><span class="all-calc-icon">chart_increasing</span><span>Capital Gains Tax Calculator</span></a>
+          <a href="percentage.html" class="all-calc-card"><span class="all-calc-icon">%</span><span>Percentage Calculator</span></a>
+          <a href="unit-converter.html" class="all-calc-card"><span class="all-calc-icon">arrows_clockwise</span><span>Unit Converter</span></a>
+          <a href="age.html" class="all-calc-card"><span class="all-calc-icon">birthday_cake</span><span>Age Calculator</span></a>
+          <a href="date-diff.html" class="all-calc-card"><span class="all-calc-icon">calendar</span><span>Date Difference Calculator</span></a>
+          <a href="bmi.html" class="all-calc-card"><span class="all-calc-icon">balance_scale</span><span>BMI Calculator</span></a>
+          <a href="calorie.html" class="all-calc-card"><span class="all-calc-icon">fire</span><span>Calorie Calculator</span></a>
+          <a href="down-payment.html" class="all-calc-card"><span class="all-calc-icon">dollar_banknote</span><span>Down Payment Calculator</span></a>
+          <a href="refinance.html" class="all-calc-card"><span class="all-calc-icon">arrows_clockwise</span><span>Refinance Calculator</span></a>
+          <a href="tip.html" class="all-calc-card"><span class="all-calc-icon">coffee</span><span>Tip Calculator</span></a>
+          <a href="fuel-cost.html" class="all-calc-card"><span class="all-calc-icon">fuel_pump</span><span>Fuel Cost Calculator</span></a>
+          <a href="gpa.html" class="all-calc-card"><span class="all-calc-icon">book</span><span>GPA Calculator</span></a>
+          <a href="inflation.html" class="all-calc-card"><span class="all-calc-icon">chart_decreasing</span><span>Inflation Calculator</span></a>
+          <a href="currency.html" class="all-calc-card"><span class="all-calc-icon">currency_exchange</span><span>Currency Converter</span></a>
+          <a href="net-worth.html" class="all-calc-card"><span class="all-calc-icon">gem</span><span>Net Worth Calculator</span></a>
+                    </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="logo.svg" alt="Calculator Pro Logo" width="28" height="28" />
+        <span>Calculator Pro</span>
+      </div>
+      <p class="footer-copy">2026 Calculator Pro. All calculators free to use.</p>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-to-top">Back to top</a>
+
+  <script src="i18n.js" defer></script>
+  <script src="auth.js" defer></script>
+  <script src="pdf-notes.js" defer></script>
+  <script src="auto-loan.js" defer></script>
+</body>
+</html>
