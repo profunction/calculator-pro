@@ -1,55 +1,8 @@
 /* ═══════════════════════════════════════════════
-   auth.css — Google Login + Auth Pages
+   auth.css — Auth Pages (Email/Password Login)
    ═══════════════════════════════════════════════ */
 
-/* ── Header Login Button (compact) ── */
-.google-login-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: #fff;
-  color: #3c4043;
-  border: 1.5px solid #dadce0;
-  border-radius: 24px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-  font-family: inherit;
-  position: relative;
-  overflow: hidden;
-}
-.google-login-btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(66,133,244,0.06), rgba(234,67,53,0.06));
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-.google-login-btn:hover::before { opacity: 1; }
-.google-login-btn:hover {
-  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-  border-color: #c0c0c0;
-  transform: translateY(-1px);
-}
-.google-login-btn:active { transform: translateY(0); }
-.google-login-btn svg { flex-shrink: 0; position: relative; z-index: 1; }
-.google-login-btn span { position: relative; z-index: 1; }
-
-[data-theme="dark"] .google-login-btn {
-  background: #303134;
-  color: #e8eaed;
-  border-color: #5f6368;
-}
-[data-theme="dark"] .google-login-btn:hover {
-  background: #3c4043;
-  border-color: #80868b;
-}
-
-/* Header login text button (compact alternative) */
+/* ── Header Login/Signup Buttons ── */
 .header-login-btn {
   display: inline-flex;
   align-items: center;
@@ -177,16 +130,6 @@
   color: var(--red, #EF4444);
 }
 
-.auth-setup-hint {
-  font-size: 12px;
-  color: var(--text-secondary, #718096);
-}
-.auth-setup-hint a {
-  color: var(--primary, #2563EB);
-  text-decoration: underline;
-}
-
-#credential_picker_container { z-index: 99999 !important; }
 
 #authContainer {
   display: flex;
@@ -195,8 +138,6 @@
 }
 
 @media (max-width: 768px) {
-  .google-login-btn span { display: none; }
-  .google-login-btn { padding: 7px 9px; }
   .header-signup-btn { display: none; }
 }
 
@@ -317,60 +258,6 @@
   font-size: 14px;
   color: var(--text-secondary, #475569);
   margin-bottom: 28px;
-}
-
-/* Google button on auth pages (large) */
-.google-btn-large {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  width: 100%;
-  padding: 13px 20px;
-  background: #fff;
-  color: #3c4043;
-  border: 2px solid #dadce0;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: inherit;
-}
-.google-btn-large:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-  border-color: #b0b0b0;
-  transform: translateY(-1px);
-}
-.google-btn-large:active { transform: translateY(0); }
-.google-btn-large svg { flex-shrink: 0; }
-
-[data-theme="dark"] .google-btn-large {
-  background: #303134;
-  color: #e8eaed;
-  border-color: #5f6368;
-}
-[data-theme="dark"] .google-btn-large:hover {
-  background: #3c4043;
-  border-color: #80868b;
-}
-
-/* Divider */
-.auth-divider {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin: 24px 0;
-  color: var(--text-muted, #94A3B8);
-  font-size: 13px;
-  font-weight: 500;
-}
-.auth-divider::before,
-.auth-divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border, #E2E8F0);
 }
 
 /* Form fields */
